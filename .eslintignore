@@ -1,0 +1,14 @@
+build/*.js
+src/assets
+src/components/zTree
+src/components/canvasTable
+src/mixins/go.js
+src/mixins/go1.js
+jsmind.js
+jsmind.draggable.js
+jsmind.drag.js
+jsmind.screenshot.js
+# src/components/FMEA
+public
+dist
+go.js
