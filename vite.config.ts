@@ -1,17 +1,19 @@
 import { defineConfig } from 'vite'
 import { createVuePlugin } from 'vite-plugin-vue2'
+import qiankun from 'vite-plugin-qiankun'
 import { resolve } from 'path'
 const config = defineConfig({
   resolve: {
     alias: {
       '@': resolve('src')
-    },
+    }
   },
   build: {
     sourcemap: true,
-    minify: false,
+    minify: false
   },
   plugins: [
+    qiankun('vue3Vite', { useDevMode: true }),
     createVuePlugin({ jsx: true }),
     {
       name: 'customBlock',
@@ -29,12 +31,17 @@ const config = defineConfig({
               }
               Object.assign(options.__customBlock, __customBlock);
             }`,
-            map: null,
+            map: null
           }
         }
-      },
-    },
+      }
+    }
   ],
+  server: {
+    host:true, // 暴露内网ip
+    port: 6789,
+    cors: true
+  }
 })
 
 export default config
